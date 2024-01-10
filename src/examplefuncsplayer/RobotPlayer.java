@@ -2,12 +2,14 @@ package examplefuncsplayer;
 
 import battlecode.common.*;
 
+import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.Vector;
 
 /**
  * RobotPlayer is the class that describes your main robot strategy.
@@ -22,7 +24,8 @@ public strictfp class RobotPlayer {
      * these variables are static, in Battlecode they aren't actually shared between your robots.
      */
     static int turnCount = 0;
-
+    static int id;
+    static int botNo;
     /**
      * A random number generator.
      * We will use this RNG to make some random moves. The Random class is provided by the java.util.Random
@@ -109,7 +112,27 @@ public strictfp class RobotPlayer {
                     // We can also move our code into different methods or classes to better organize it!
                     updateEnemyRobots(rc);
                 }
-
+                if(turnCount == 1){
+                    id = rc.getID();
+                    for(int i = 0; i<64; i++){
+                        if(rc.readSharedArray(i) == 0){
+                            rc.writeSharedArray(i,id);
+                            break;
+                        }
+                    }
+                    Vector<Integer> ids = new Vector<Integer>();
+                    while(true){
+                        if(rc.readSharedArray(49)>0){
+                            for(int i = 0; i<50; i++) {
+                                ids.add(rc.readSharedArray(i));
+                            }
+                            Collections.sort(ids);
+                            botNo = ids.indexOf(id);
+                            System.out.println(botNo);
+                            break;
+                        }
+                    }
+                }
             } catch (GameActionException e) {
                 // Oh no! It looks like we did something illegal in the Battlecode world. You should
                 // handle GameActionExceptions judiciously, in case unexpected events occur in the game
