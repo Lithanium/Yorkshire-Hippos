@@ -1,15 +1,3 @@
-//   0 1 2 3 4 5 6 7 8 9
-// 0 F     H H H F H A A
-// 1         A A A A A
-// 2     A       A A
-// 3 A
-// 4 H A
-// 5 H A A
-// 6 F A A
-// 7 H A
-// 8 A A
-// 9 A
-
 package reechee;
 
 import battlecode.common.*;
@@ -192,8 +180,8 @@ public strictfp class RobotPlayer {
                                     }
                                 }
                                 Pathfind.moveTowardsV1(rc, teamFlagLocation.add(oscillationDirections[currentOscillationDirection]));
-                                // Place traps on rounds where _ for even traps
-                                if (roundNum % numDefence == id) xDefense(rc);
+                                // Place traps on rounds where _  for even traps
+                                if (roundNum % numDefence == id) placeTrapsNearFlag(rc);
                             }
                         }
                     }
