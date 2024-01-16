@@ -1,4 +1,4 @@
-package philip;
+package anson;
 
 import battlecode.common.*;
 

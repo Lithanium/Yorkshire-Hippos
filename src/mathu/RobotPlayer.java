@@ -1,4 +1,4 @@
-package philip;
+package mathu;
 
 import battlecode.common.*;
 
