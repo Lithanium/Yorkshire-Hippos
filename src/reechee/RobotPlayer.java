@@ -28,7 +28,7 @@ import static java.lang.Math.abs;
 
 public strictfp class RobotPlayer {
     // SHARED ARRAY INFO
-    // 0 - 2: Information about team flags
+    // 0 - 2: Information about team flags - contains x, y, number of booms placed
 
     // Settings
     static int numDefence = 3;
